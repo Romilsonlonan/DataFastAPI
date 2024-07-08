@@ -38,9 +38,11 @@ ignr -p data > .gitignore
 ** PRIMEIRO COMMIT ** 
 
 git init .
+git remote add origin git@github.com:Romilsonlonan/DataFastAPI.git
 git add .
+git checkout -b Projeto_Iniciado
 git commit -m "mensagem"
-git push -u origin main 
+git push origin Projeto_Iniciado
 
 
 ##################################################################
