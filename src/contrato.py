@@ -1,8 +1,6 @@
-from loguru import logger  # Importa o logger do loguru para logging avançado
-import pandas as pd
 import pandera as pa  # Importa o pandera para validação de DataFrames
 from typing import Optional  # Importa Optional para tipos opcionais
-import pandera.typing as Series  # Importa o pandas para manipulação de DataFrames
+from pandera.typing import Series  # Importa o pandas para manipulação de DataFrames
 
 # Define um modelo de DataFrame usando pandera
 class MetricasFinanceirasBase(pa.DataFrameModel):
@@ -26,12 +24,12 @@ class MetricasFinanceirasBase(pa.DataFrameModel):
         strict = True  # Exige que o DataFrame tenha exatamente as colunas definidas
         coerce = True  # Converte tipos de dados automaticamente
 
-    # Define uma verificação para a coluna Classificacao_Clientes
+    # Define uma verificação para a coluna "Satisfação"
     @pa.check(
-        "Classificacao_Clientes",
-        name="Checagem de código Classificacao de Clientes",
-        error="Checagem de Código de Classificação de Clientes é Inválido"
+        "Satisfação",
+        name = "Checagem de Pesquisa de Satisfação Clientes",
+        error = "Checagem de Pesquisa de Satisfação Clientes é Inválido"
     )
-    def check_codigo_setor(cls, codigo: pd.Series) -> pd.Series:
-        # Verifica se a coluna começa com os códigos especificados
-        return codigo.str.startswith(('Clientes_Ouro>=1001.00', 'Clientes_Prata<=1000.00'))
+    def check_satisfacao(cls, satisfacao: Series[str]) -> Series[bool]:
+        # Verifica se os valores da coluna estão entre os valores especificados
+        return satisfacao.isin(["Ruim", "Bom", "Excelente"])
