@@ -19,6 +19,7 @@ motor = "^3.5.0"
 loguru = "^0.7.2"
 git-lfs = "^1.6"
 bfg = "^0.1.0"
+numpy = "^2.0.0"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.5.1"

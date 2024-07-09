@@ -1,7 +1,7 @@
 import pandas as pd  # Importa a biblioteca pandas para manipulação de dados
 import pandera as pa  # Importa a biblioteca pandera para validação de DataFrames
 from loguru import logger  # Importa o loguru para logging
-from src.contrato import MetricasFinanceirasBase  # Importa o modelo de validação do contrato
+from src.contrato import MetricasClientesBase  # Importa o modelo de validação do contrato
 
 # Definindo o caminho do arquivo
 dir_arquivo = "data/base_clientes.csv"  # Define o caminho do arquivo CSV que contém os dados
@@ -42,7 +42,7 @@ def extrai_dados(dir_arquivo: str) -> pd.DataFrame:
 
     # Valida os dados do novo DataFrame
     try:
-        df_contrato = MetricasFinanceirasBase.validate(df_contrato, lazy=True)  # Valida o DataFrame usando o modelo do contrato
+        df_contrato = MetricasClientesBase.validate(df_contrato, lazy=True)  # Valida o DataFrame usando o modelo do contrato
         logger.info("Validação bem-sucedida dos dados selecionados.")  # Loga uma mensagem informando que a validação foi bem-sucedida
         logger.debug(f"Primeiras 2 linhas dos dados validados: \n{df_contrato.head(2)}")  # Loga as primeiras 2 linhas do DataFrame validado
         return df_contrato  # Retorna o DataFrame validado

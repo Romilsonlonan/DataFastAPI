@@ -3,7 +3,7 @@ from typing import Optional  # Importa Optional para tipos opcionais
 from pandera.typing import Series  # Importa o pandas para manipulação de DataFrames
 
 # Define um modelo de DataFrame usando pandera
-class MetricasFinanceirasBase(pa.DataFrameModel):
+class MetricasClientesBase(pa.DataFrameModel):
     # Define os tipos e restrições das colunas do DataFrame
     Classificacao_Clientes: Series[str]  
     Nome_Clientes: Series[str]  
