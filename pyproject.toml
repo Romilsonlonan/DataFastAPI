@@ -20,6 +20,9 @@ loguru = "^0.7.2"
 git-lfs = "^1.6"
 bfg = "^0.1.0"
 numpy = "^2.0.0"
+matplotlib = "^3.9.1"
+plotly-express = "^0.4.1"
+seaborn = "^0.13.2"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.5.1"
@@ -40,9 +43,9 @@ preview = true
 select = ['I','F','E','W','PL','PT']
 
 [tool.taskipy.tasks]
-run = 'fastapi dev pandera/app.py'
+run = 'fastapi dev datafastapi/app.py'
 pre_test = 'task lint'
-test = 'pytest --cov=pandera -vv'
+test = 'pytest --cov=datafastapi -vv'
 post_test = 'coverage html'
 lint = 'ruff check . ; ruff check . --diff'
 format = 'ruff check . --fix ; ruff format .'

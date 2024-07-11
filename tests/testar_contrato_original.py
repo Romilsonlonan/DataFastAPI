@@ -14,7 +14,6 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")
 # Importa a classe ou função necessária do seu módulo src.contrato
 from src.contrato import MetricasClientesBase
 
-
 from loguru import logger
 logger.add(sys.stdout, format="{time} {level} {message}") 
 
