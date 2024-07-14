@@ -23,6 +23,8 @@ matplotlib = "^3.9.1"
 plotly-express = "^0.4.1"
 seaborn = "^0.13.2"
 pymongo = "^4.8.0"
+black = "^24.4.2"
+isort = "^5.13.2"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.5.1"

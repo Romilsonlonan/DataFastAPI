@@ -1,7 +1,13 @@
-import pandas as pd  # Importa a biblioteca pandas para manipulação de DataFrames
-import pandera as pa  # Importa a biblioteca pandera para validação de DataFrames
-from typing import Optional  # Importa Optional para definir tipos opcionais
-from pandera.typing import Series  # Importa Series do pandera para definir tipos de colunas
+# Importa Optional para definir tipos opcionais
+from typing import Optional  
+# Importa a biblioteca pandas para manipulação de DataFrames
+import pandas as pd  
+# Importa a biblioteca pandera para validação de DataFrames
+import pandera as pa  
+# Importa Series do pandera para definir tipos de colunas
+from pandera.typing import \
+    Series  
+
 
 # Define um modelo de DataFrame usando pandera
 class MetricasClientesBase(pa.DataFrameModel):
