@@ -1,17 +1,19 @@
-import os  # Importa a biblioteca os para interagir com o sistema operacional.
-import warnings  # Importa a biblioteca warnings para emitir avisos.
-
-import pandas as pd  # Importa a biblioteca pandas, que é usada para manipulação e análise de dados.
-from dotenv import \
-    load_dotenv  # Importa a função load_dotenv para carregar variáveis de ambiente de um arquivo .env.
-from loguru import logger  # Importa a biblioteca loguru para registro de logs.
-from sqlalchemy import \
-    create_engine  # Importa a função create_engine para conectar ao banco de dados PostgreSQL.
-
-from src.etl.extrair import \
-    extrai_dados  # Importa a função extrai_dados do módulo extrair.
-from src.etl.transformar import \
-    transforma_dados  # Importa a função transforma_dados do módulo transformar.
+# Importa a biblioteca os para interagir com o sistema operacional.
+import os  
+# Importa a biblioteca warnings para emitir avisos.
+import warnings  
+# Importa a biblioteca pandas, que é usada para manipulação e análise de dados.
+import pandas as pd
+# Importa a função load_dotenv para carregar variáveis de ambiente de um arquivo .env.
+from dotenv import load_dotenv
+# Importa a biblioteca loguru para registro de logs.  
+from loguru import logger
+# Importa a função create_engine para conectar ao banco de dados PostgreSQL.  
+from sqlalchemy import create_engine  
+# Importa a função extrai_dados do módulo extrair.
+from src.etl.extrair import extrai_dados
+# Importa a função transforma_dados do módulo transformar.  
+from src.etl.transformar import transforma_dados  
 
 # Configuração do logger para registrar logs em um arquivo com rotação de 10 MB.
 logger.add("logs/application.log", rotation="10 MB", level="INFO")
@@ -20,7 +22,7 @@ logger.add("logs/application.log", rotation="10 MB", level="INFO")
 # Função para carregar dados no PostgreSQL.
 def carrega_dados(df2: pd.DataFrame) -> None:
     # Carrega as variáveis de ambiente do arquivo .env.
-    load_dotenv(".env")
+    load_dotenv(".post.env")
 
     # Obtém as variáveis de ambiente necessárias para a conexão com o PostgreSQL.
     POSTGRES_USER = os.getenv("POSTGRES_USER")
@@ -65,8 +67,9 @@ if __name__ == "__main__":
         logger.info("Iniciando o processo de carga de dados no PostgreSQL.")
         carrega_dados(df_transformado)
 
-        # Log de conclusão do processo.
-        logger.info("Processo concluído com sucesso.")
     except Exception as e:
-        # Ignora exceções para não interromper a execução do script.
-        pass
+        # Registra um erro se ocorrer uma exceção.
+        logger.error(f"Erro no processo: {e}")
+    else:
+        # Log de conclusão do processo sem exceções.
+        logger.info("Processo concluído com sucesso.")

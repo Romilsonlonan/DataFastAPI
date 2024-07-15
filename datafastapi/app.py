@@ -1,10 +1,16 @@
+from dotenv import load_dotenv
+from src.contrato import NovasMetricasClienteBase
 import warnings
-
+import psutil
 import pandas as pd
 import uvicorn
 from fastapi import FastAPI
 from loguru import logger
 from pymongo import MongoClient
+
+
+# Carregar variáveis de ambiente do arquivo .mongo.env
+load_dotenv(".mongo.env")
 
 # Configurar logging
 logger.add(
@@ -13,7 +19,6 @@ logger.add(
 warnings.filterwarnings("always")  # Exibir todos os warnings
 
 # Importações do seu projeto
-from src.contrato import NovasMetricasClienteBase
 
 app = FastAPI()
 

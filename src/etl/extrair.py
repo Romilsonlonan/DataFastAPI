@@ -1,16 +1,16 @@
 # Importa a biblioteca pandas para manipulação de dados
-import pandas as pd 
+import pandas as pd
 # Importa a biblioteca pandera para validação de DataFrames
-import pandera as pa  
+import pandera as pa
 # Importa o loguru para logger
-from loguru import logger  
+from loguru import logger
 # Importa o modelo de validação do contrato
-from src.contrato import MetricasClientesBase  
+from src.contrato import MetricasClientesBase
 
 
 # Definindo o caminho do arquivo
 # Define o caminho do arquivo CSV que contém os dados
-dir_arquivo = "data/base_clientes.csv"  
+dir_arquivo = "data/base_clientes.csv"
 
 
 def extrai_dados(dir_arquivo: str) -> pd.DataFrame:
@@ -44,7 +44,7 @@ def extrai_dados(dir_arquivo: str) -> pd.DataFrame:
         "Custo_Unitario",
         "Preco_Unitario",
         "Qtd_Vendida",
-    ] # Lista das colunas que devem estar presentes conforme o contrato
+    ]  # Lista das colunas que devem estar presentes conforme o contrato
 
     try:
         # Filtra o DataFrame para conter apenas as colunas do contrato
@@ -90,7 +90,7 @@ if __name__ == "__main__":
     ''' 
     verificando se a variável df1 não é None antes de executar 
     qualquer operação adicional com ela
-    '''    
+    '''
     if df1 is not None:
         try:
             df1.to_csv(

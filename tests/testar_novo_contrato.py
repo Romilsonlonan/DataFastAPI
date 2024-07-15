@@ -2,7 +2,8 @@ import os  # Importa o módulo os para manipular caminhos de arquivos
 import sys  # Importa o módulo sys para manipular o caminho do sistema
 
 import pandas as pd  # Importa a biblioteca pandas para manipulação de DataFrames
-import pandera as pa  # Importa a biblioteca pandera para validação de DataFrames; Importa novamente pandera (parece duplicado)
+# Importa a biblioteca pandera para validação de DataFrames; Importa novamente pandera (parece duplicado)
+import pandera as pa
 from loguru import logger  # Importa a biblioteca loguru para logging
 
 from src.contrato import (

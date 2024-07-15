@@ -19,12 +19,17 @@ loguru = "^0.7.2"
 git-lfs = "^1.6"
 bfg = "^0.1.0"
 numpy = "^2.0.0"
+psutil = ">=5.7.2,<6.0.0"
 matplotlib = "^3.9.1"
 plotly-express = "^0.4.1"
 seaborn = "^0.13.2"
 pymongo = "^4.8.0"
 black = "^24.4.2"
 isort = "^5.13.2"
+flake8 = "^7.1.0"
+autopep8 = "^2.3.1"
+python-dotenv = "^1.0.1"
+uvicorn = "^0.30.1"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.5.1"
@@ -39,6 +44,10 @@ addopts = '-p no:warnings'
 [tool.ruff]
 line-length = 79
 extend-exclude = ['migrations']
+
+[tool.flake8]
+flake8 = {"max-line-length"= 79}
+
 
 [tool.ruff.lint]
 preview = true

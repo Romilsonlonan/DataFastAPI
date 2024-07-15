@@ -2,10 +2,12 @@ import pandas as pd  # Importa a biblioteca pandas para manipulação de DataFra
 import pandera as pa  # Importa a biblioteca pandera para validação de DataFrames
 from loguru import logger  # Importa a biblioteca loguru para logging
 
-from src.contrato import \
-    NovasMetricasClienteBase  # Importa o modelo de contrato de métricas de clientes
+from src.contrato import (
+    NovasMetricasClienteBase,
+)  # Importa o modelo de contrato de métricas de clientes
 
-df1 = "data/base_metricas_clientes.csv"  # Define o caminho do arquivo CSV com os dados base
+# Define o caminho do arquivo CSV com os dados base
+df1 = "data/base_metricas_clientes.csv"
 
 
 # Define a função de transformação de dados com uma verificação de saída usando pandera

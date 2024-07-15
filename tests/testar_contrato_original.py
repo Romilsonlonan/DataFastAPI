@@ -1,3 +1,5 @@
+from src.contrato import MetricasClientesBase
+from loguru import logger
 import os  # Importa o módulo os para lidar com funcionalidades dependentes do sistema operacional
 import sys  # Importa o módulo sys para acessar variáveis e funções específicas do interpretador Python
 import time  # Importa o módulo time para manipulação de tempo
@@ -14,10 +16,8 @@ sys.path.insert(
     0, os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 )
 
-from loguru import logger
 
 # Importa a classe ou função necessária do seu módulo src.contrato
-from src.contrato import MetricasClientesBase
 
 logger.add(sys.stdout, format="{time} {level} {message}")
 

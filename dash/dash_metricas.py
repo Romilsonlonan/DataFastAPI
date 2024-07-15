@@ -2,11 +2,12 @@
 # Importa a biblioteca pandas para manipulação de DataFrames
 # Importa a biblioteca seaborn para visualização de dados
 
-import matplotlib.pyplot as plt  
-import pandas as pd  
-import seaborn as sns  
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
 
-sns.set(style="darkgrid") # Configurar o estilo do Seaborn para um fundo escuro
+# Configurar o estilo do Seaborn para um fundo escuro
+sns.set(style="darkgrid")
 
 # Carregue seu arquivo CSV
 df2 = pd.read_csv(
